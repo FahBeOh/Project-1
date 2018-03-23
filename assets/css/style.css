@@ -6,12 +6,16 @@ body{
     background-size: cover;
 }
 
- #title-font, #subtitle-font, #button{
+ #title-font, #subtitle-font, #button, h3{
      font-family: 'Gloria Hallelujah', cursive;
  }
 
  #top-buffer{
      height: 10px;
+ }
+
+ .userInput, .urbanDef, .urbanEx{
+     font-weight: bold;
  }
 
  @media only screen and (max-width: 1200px){
@@ -44,13 +48,28 @@ body{
     }
  }
 
- @media only screen and (max-width: 320px){
+ @media only screen and (max-width: 576px){
     body{
-        background: url("../images/hipster_finn_SE.png") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        background: url("#") no-repeat center center fixed;
+    }
+
+    #wrapper{
         background-size: cover;
+        display: block;
+        position: relative;
+    }
+
+    #wrapper::after{
+        content: "";
+        background: url(../images/hipster_finn_mobile.png);
+        background-size: cover;
+        opacity: 0.4;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;  
     }
  }
 
