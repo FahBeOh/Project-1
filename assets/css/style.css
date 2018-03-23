@@ -1,3 +1,4 @@
+/* Background image */
 body{
     background: url("../images/hipster_finn.png") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -5,19 +6,19 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
-
- #title-font, #subtitle-font, #button, h3{
+/* Google Fonts */
+ #title-font, #subtitle-font, #button, .col-8{
      font-family: 'Gloria Hallelujah', cursive;
  }
-
+/* Buffer for top of page */
  #top-buffer{
      height: 10px;
  }
-
+/* Api data is printed with bold font for easier readability */
  .userInput, .urbanDef, .urbanEx{
      font-weight: bold;
  }
-
+/* Media Queries  for various screen sizes*/
  @media only screen and (max-width: 1200px){
     body{
         background: url("../images/hipster_finn_1200.png") no-repeat center center fixed;
@@ -47,7 +48,7 @@ body{
         background-size: cover;
     }
  }
-
+/* Media Query for mobile devices, background image has lowered opacity for easier readability */
  @media only screen and (max-width: 576px){
     body{
         background: url("#") no-repeat center center fixed;
