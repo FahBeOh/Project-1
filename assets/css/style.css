@@ -7,8 +7,12 @@ body{
     background-size: cover;
 }
 /* Google Fonts */
- #title-font, #subtitle-font, #button, .col-8{
+ #title-font, #subtitle-font, #button, h3{
      font-family: 'Gloria Hallelujah', cursive;
+ }
+
+ .userInput, .urbanDef, .urbanEx{
+    font-family: 'Oswald', sans-serif;
  }
 /* Buffer for top of page */
  #top-buffer{
@@ -18,7 +22,8 @@ body{
  .userInput, .urbanDef, .urbanEx{
      font-weight: bold;
  }
-/* Media Queries  for various screen sizes*/
+ 
+/* Media Queries  for various browser window sizes*/
  @media only screen and (max-width: 1200px){
     body{
         background: url("../images/hipster_finn_1200.png") no-repeat center center fixed;
@@ -39,7 +44,7 @@ body{
     }
  }
 
- @media only screen and (max-width: 767px){
+ @media only screen and (max-width: 768px){
     body{
         background: url("../images/hipster_finn_767.png") no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -49,7 +54,59 @@ body{
     }
  }
 /* Media Query for mobile devices, background image has lowered opacity for easier readability */
- @media only screen and (max-width: 576px){
+@media only screen and (max-width: 736px){
+    body{
+        background: url("#") no-repeat center center fixed;
+    }
+
+    #wrapper{
+        background-size: cover;
+        display: block;
+        position: relative;
+    }
+
+    #wrapper::after{
+        content: "";
+        background: url(../images/hipster_finn_767.png);
+        background-size: cover;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;  
+        height: 1000px;
+    }
+ }
+
+@media only screen and (max-width: 667px){
+    body{
+        background: url("#") no-repeat center center fixed;
+    }
+
+    #wrapper{
+        background-size: cover;
+        display: block;
+        position: relative;
+    }
+
+    #wrapper::after{
+        content: "";
+        background: url(../images/hipster_finn_767.png);
+        background-size: cover;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;  
+        display: block;
+    }
+ }
+
+@media only screen and (max-width: 576px){
     body{
         background: url("#") no-repeat center center fixed;
     }
@@ -64,13 +121,14 @@ body{
         content: "";
         background: url(../images/hipster_finn_mobile.png);
         background-size: cover;
-        opacity: 0.4;
+        opacity: 0.3;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
         position: absolute;
         z-index: -1;  
+        display: block;
     }
  }
 
