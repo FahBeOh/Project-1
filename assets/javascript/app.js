@@ -52,7 +52,7 @@ $(document).ready(function () {
             console.log(response);
             console.log(response.list[0].definition);
 
-            $(".userInput").html("<b>Word searched</b>: " + term);
+            $(".wordSearched").html(term.toUpperCase());
 
             $(".urbanDef").html("<b>Definition</b>: " + response.list[0].definition);
 

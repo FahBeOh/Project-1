@@ -11,7 +11,7 @@ body{
      font-family: 'Gloria Hallelujah', cursive;
  }
 
- .userInput, .urbanDef, .urbanEx{
+ .wordSearched, .urbanDef, .urbanEx{
     font-family: 'Oswald', sans-serif;
  }
 /* Buffer for top of page */
