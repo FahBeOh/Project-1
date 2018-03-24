@@ -28,7 +28,7 @@ $(document).ready(function () {
 
         console.log(term);
         
-        var queryURL = "https://od-api.oxforddictionaries.com/api/v1/entries/en/" + term;
+        var queryURL = "https://od-api.oxforddictionaries.com:443/api/v1/entries/en/" + term;
         var headers = {
 
             "Accept": "application/json",
@@ -48,6 +48,7 @@ $(document).ready(function () {
             headers: headers
         }).then(function (response) {
             console.log(response);
+            console.log(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
         })
     
 
