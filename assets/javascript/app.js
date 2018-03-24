@@ -27,23 +27,7 @@ $(document).ready(function () {
         term = $("#user-input").val().trim();
 
         console.log(term);
-
-        var url = 'https://newsapi.org/v2/top-headlines?' +
-            'q=' + term + '&' +
-            'from=2018-03-24&' +
-            'sortBy=popularity&' +
-            'apiKey=ed60c9f213c14312a011b71f6ecc7d29';
-
-        var req = new Request(url);
-
-        fetch(req)
-            .then(function (response) {
-                console.log(response.json());
-                console.log("articles: "+response.json().articles);
-            })
-
-            // $(".articles").html()
-
+        
         //Contact the API
         $.get(
             "https://api.urbandictionary.com/v0/define?term=" + term
