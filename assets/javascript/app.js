@@ -27,7 +27,27 @@ $(document).ready(function () {
         term = $("#user-input").val().trim();
 
         console.log(term);
-        
+        var queryURL = "https://od-api.oxforddictionaries.com:443/api/v1/entries/en/" + term;
+        var headers = {
+            "Accept": "application/json",
+            "app_id": "cdea9fcf",
+            "app_key": "231e68a13c654e57183097636ce5f12d"
+        };
+        $.ajaxPrefilter(function (options) {
+            if (options.crossDomain && $.support.cors) {
+                options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+            }
+        });
+
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: headers
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+        })
+
         //Contact the API
         $.get(
             "https://api.urbandictionary.com/v0/define?term=" + term
