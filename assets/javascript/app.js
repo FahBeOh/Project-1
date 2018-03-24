@@ -19,6 +19,7 @@ $(document).ready(function () {
     $(".urban").on("click", function (process) {
 
         $(".urbanDef").empty();
+        $(".oxDef").empty();
 
         //Disables the page to refresh itself
         process.preventDefault();
@@ -46,6 +47,9 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             console.log(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+            
+            $(".oxDef").html(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+           
         })
 
         //Contact the API
@@ -61,6 +65,8 @@ $(document).ready(function () {
             $(".urbanDef").html("<b>Definition</b>: " + response.list[0].definition);
 
             $(".urbanEx").html("<b>Example</b>: " + response.list[0].example);
+
+           
         })
         // Calling giphy api function
         giphy();
