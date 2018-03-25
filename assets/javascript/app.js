@@ -4,7 +4,7 @@ $(document).ready(function () {
     // Function for "get" giphy Api and displying it to page
     function giphy() {
         var apiKey = "eAFKeOjlTldUvzjggovAVPjRKowwoyai";
-        var queryURL = "https://api.giphy.com/v1/gifs/random?rating=g&tag=" + term + "&api_key=" + apiKey;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?limit=1&q=" + term + "&api_key=" + apiKey;
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -12,7 +12,7 @@ $(document).ready(function () {
             console.log(response);
             var displayGif = $("<img class='img-fluid mr-3 mb-3'>");
             $(".gifHolder").html(displayGif);
-            displayGif.attr("src", response.data.images.fixed_width.url);
+            displayGif.attr("src", response.data[0].images.fixed_width.url);
         })
     }
 
