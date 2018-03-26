@@ -11,7 +11,7 @@ body{
      font-family: 'Gloria Hallelujah', cursive;
  }
 
- .wordSearched, .urbanDef, .urbanEx{
+ .wordSearched, .urbanDef, .urbanEx, .oxDef{
     font-family: 'Oswald', sans-serif;
  }
 /* Buffer for top of page */
@@ -19,7 +19,7 @@ body{
      height: 10px;
  }
 /* Api data is printed with bold font for easier readability */
- .userInput, .urbanDef, .urbanEx{
+ .userInput, .urbanDef, .urbanEx, .oxDef{
      font-weight: bold;
  }
  

@@ -43,23 +43,31 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET",
-            headers: headers
-        }).then(function (response) {
+            headers: headers,
+            error: function(e){
+                $(".oxDef").html("I am sorry, but civilized people do not use such language.");
+            }
+        })
+        .then(function (response) {
             console.log(response);
             console.log(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
             
-            $(".oxDef").html(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
+            $(".oxDef").html("<b>Definition: </b>" + response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
            
         })
 
         //Contact the API
-        $.get(
-            "https://api.urbandictionary.com/v0/define?term=" + term
-        ).then(function (response) {
+        $.ajax({
+            url: "https://api.urbandictionary.com/v0/define?term=" + term,
+            method: "GET",
+            headers: headers,
+        }).then(function (response) {
 
             console.log(response);
             console.log(response.list[0].definition);
-
+            if (response.result_type === "exact"){
+                alert("weiner");
+            }
             $(".wordSearched").html(term.toUpperCase());
 
             $(".urbanDef").html("<b>Definition</b>: " + response.list[0].definition);
