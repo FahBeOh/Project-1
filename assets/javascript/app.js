@@ -65,7 +65,7 @@ $(document).ready(function () {
 
             console.log(response);
             console.log(response.list[0].definition);
-            if (response.result_type === "exact"){
+            if (response.result_type === "no_results"){
                 alert("weiner");
             }
             $(".wordSearched").html(term.toUpperCase());
