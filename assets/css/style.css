@@ -10,7 +10,7 @@ body{
  #title-font, #subtitle-font, #button, h3{
      font-family: 'Gloria Hallelujah', cursive;
  }
-
+/* Google Fonts */
  .wordSearched, .urbanDef, .urbanEx, .oxDef{
     font-family: 'Oswald', sans-serif;
  }
@@ -21,6 +21,11 @@ body{
 /* Api data is printed with bold font for easier readability */
  .userInput, .urbanDef, .urbanEx, .oxDef{
      font-weight: bold;
+ }
+/* Color and size of searched term */
+ .wordSearched{
+     font-size: 2rem;
+     color: blue;
  }
  
 /* Media Queries  for various browser window sizes*/

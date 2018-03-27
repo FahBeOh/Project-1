@@ -28,12 +28,14 @@ $(document).ready(function () {
         term = $("#user-input").val().trim();
 
         console.log(term);
+
         var queryURL = "https://od-api.oxforddictionaries.com:443/api/v1/entries/en/" + term;
         var headers = {
             "Accept": "application/json",
             "app_id": "cdea9fcf",
             "app_key": "231e68a13c654e57183097636ce5f12d"
         };
+
         $.ajaxPrefilter(function (options) {
             if (options.crossDomain && $.support.cors) {
                 options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
@@ -45,15 +47,17 @@ $(document).ready(function () {
             method: "GET",
             headers: headers,
             error: function(e){
-                $(".oxDef").html("I am sorry, but civilized people do not use such language.");
+                var peopleTalk = $(".oxDef");
+                var displayError = $("<img class='img-fluid mr-3 mb-3'>");
+                displayError.attr("src", "assets/images/pinky.png");
+                peopleTalk.html(displayError);
+                peopleTalk.append("<br>");
+                peopleTalk.append("<p style='color:red;'>Civilzed people don't use such LANGUAGE!</p>");
             }
-        })
-        .then(function (response) {
+        }).then(function (response) {
             console.log(response);
             console.log(response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
-            
             $(".oxDef").html("<b>Definition: </b>" + response.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]);
-           
         })
 
         //Contact the API
@@ -65,16 +69,12 @@ $(document).ready(function () {
 
             console.log(response);
             console.log(response.list[0].definition);
-            if (response.result_type === "no_results"){
-                alert("weiner");
-            }
+
             $(".wordSearched").html(term.toUpperCase());
 
             $(".urbanDef").html("<b>Definition</b>: " + response.list[0].definition);
 
             $(".urbanEx").html("<b>Example</b>: " + response.list[0].example);
-
-           
         })
         // Calling giphy api function
         giphy();
@@ -83,20 +83,4 @@ $(document).ready(function () {
         $("#user-input").val("");
 
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
