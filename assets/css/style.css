@@ -11,7 +11,7 @@ body{
      font-family: 'Gloria Hallelujah', cursive;
  }
 /* Google Fonts */
- .wordSearched, .urbanDef, .urbanEx, .oxDef,.urbanWrapper{
+ .wordSearched, .urbanDef, .urbanEx, .oxDef, .urbanWrapper, .gifHolder{
     font-family: 'Oswald', sans-serif;
  }
 /* Buffer for top of page */
@@ -19,7 +19,7 @@ body{
      height: 10px;
  }
 /* Api data is printed with bold font for easier readability */
- .userInput, .urbanDef, .urbanEx, .oxDef, .urbanWrapper{
+ .userInput, .urbanDef, .urbanEx, .oxDef, .urbanWrapper, .gifHolder{
      font-weight: bold;
  }
 /* Color and size of searched term */
@@ -29,7 +29,17 @@ body{
  }
  
 /* Media Queries  for various browser window sizes*/
- @media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1366px){
+    body{
+        background: url("../images/hipster_finn_1366.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+ }
+
+@media only screen and (max-width: 1200px){
     body{
         background: url("../images/hipster_finn_1200.png") no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -39,6 +49,16 @@ body{
     }
  }
 
+ @media only screen and (max-width: 1024px){
+    body{
+        background: url("../images/hipster_finn_1024.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+ }
+ 
  @media only screen and (max-width: 991px){
     body{
         background: url("../images/hipster_finn_975.png") no-repeat center center fixed;
@@ -48,17 +68,44 @@ body{
         background-size: cover;
     }
  }
-
- @media only screen and (max-width: 768px){
+ 
+ @media only screen and (max-width: 834px){
     body{
-        background: url("../images/hipster_finn_767.png") no-repeat center center fixed;
+        background: url("../images/hipster_finn_834.png") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
  }
+
 /* Media Query for mobile devices, background image has lowered opacity for easier readability */
+@media only screen and (max-width: 768px){
+    body{
+        background: url("#") no-repeat center center fixed;
+    }
+
+    #wrapper{
+        background-size: cover;
+        display: block;
+        position: relative;
+    }
+
+    #wrapper::after{
+        content: "";
+        background: url(../images/hipster_finn_768.png);
+        background-size: cover;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;  
+        height: 1000px;
+    }
+ }
+
 @media only screen and (max-width: 736px){
     body{
         background: url("#") no-repeat center center fixed;
@@ -98,7 +145,7 @@ body{
 
     #wrapper::after{
         content: "";
-        background: url(../images/hipster_finn_767.png);
+        background: url(../images/hipster_finn_667.png);
         background-size: cover;
         opacity: 0.3;
         top: 0;
