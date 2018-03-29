@@ -9,10 +9,19 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
-            console.log(response);
-            var displayGif = $("<img class='img-fluid mr-3 mb-3'>");
-            $(".gifHolder").html(displayGif);
-            displayGif.attr("src", response.data[0].images.fixed_width.url);
+            var gifDiv = $(".gifHolder");
+            var gifImage = $("<img class='img-fluid mr-3 mb-3'>");
+            // Error handling
+            if (response.data.length === 0){
+                console.log(response);
+                gifDiv.empty();
+                gifDiv.append(gifImage);
+                gifImage.attr("src", "https://media.giphy.com/media/7hvkctkRc3Q6Q/giphy.gif")
+            } else {            
+                gifDiv.empty();
+                gifDiv.append(gifImage);
+                gifImage.attr("src", response.data[0].images.fixed_width.url)
+            }
         })
     }
 
@@ -66,21 +75,38 @@ $(document).ready(function () {
             method: "GET",
             headers: headers,
         }).then(function (response) {
+            var hipsterTalk = $(".urbanWrapper");
+            var hipsterError = $("<img class='img-fluid mr-3 mb-3'>");
+            var searchTerm = $(".wordSearched");
+            var defDiv = $("<div class='urbanDef'>");
+            var exDiv = $("<div class='urbanEx'>");
+            // Error handling
+            if (response.result_type !== "exact"){
+                console.log(response);
 
-            console.log(response);
-            console.log(response.list[0].definition);
+                searchTerm.empty();
+                hipsterError.attr("src", "assets/images/sponge.jpg");
+                hipsterTalk.html(hipsterError);
+                hipsterTalk.append("<br>");
+                hipsterTalk.append("<p style='color:red;'>Bro, I'm not picking up what you're putting down..</p>");;
+            } else {            
+                console.log(response);
+                console.log(response.list[0].definition);
 
-            $(".wordSearched").html(term.toUpperCase());
-
-            $(".urbanDef").html("<b>Definition</b>: " + response.list[0].definition);
-
-            $(".urbanEx").html("<b>Example</b>: " + response.list[0].example);
+                hipsterTalk.empty();
+                searchTerm.html(term.toUpperCase());
+                defDiv = $("<div class='urbanDef'>");
+                hipsterTalk.append(defDiv);
+                defDiv.html("<b>Definition</b>: " + response.list[0].definition);
+                exDiv = $("<div class='urbanEx'>");
+                hipsterTalk.append(exDiv);
+                exDiv.html("<b>Example</b>: " + response.list[0].example);
+            }
         })
         // Calling giphy api function
         giphy();
 
         //Erase text after user hits submit
         $("#user-input").val("");
-
     });
 });

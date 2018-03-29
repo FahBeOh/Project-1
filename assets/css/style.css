@@ -11,7 +11,7 @@ body{
      font-family: 'Gloria Hallelujah', cursive;
  }
 /* Google Fonts */
- .wordSearched, .urbanDef, .urbanEx, .oxDef{
+ .wordSearched, .urbanDef, .urbanEx, .oxDef,.urbanWrapper{
     font-family: 'Oswald', sans-serif;
  }
 /* Buffer for top of page */
@@ -19,7 +19,7 @@ body{
      height: 10px;
  }
 /* Api data is printed with bold font for easier readability */
- .userInput, .urbanDef, .urbanEx, .oxDef{
+ .userInput, .urbanDef, .urbanEx, .oxDef, .urbanWrapper{
      font-weight: bold;
  }
 /* Color and size of searched term */
